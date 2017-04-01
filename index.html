@@ -11,16 +11,21 @@
   <body>
 
 <header>
+  <!-- need to include a LU logo or something here & change font to be LU font style -->
     <h1>Knowing Underground</h1>
     <h2>The London Underground Memory Game</h2>
 </header>
 
 <div class="main">
 
+<div class="instructions">
+  <!-- this is where the game instructions will display -->
+  <p>The London Underground has 11 lines. Can you beat the clock and correctly guess the number of stations on each line?</p>
+</div>
 
-      <div class="question">
+      <div class="lineName">
       <!-- this is where the line or station name will be displayed -->
-      <p>Tube Line Name:<span class="tubeLine"></span></p>
+      <p>Tube Line Name:<span class="tubeLine">text</span></p>
       </div>
       <div>
         <ul class="answers">
@@ -45,6 +50,7 @@
       </div> -->
 
       <div>
+        <!-- clicking on reset button should generate alert 'are you sure you want to reset, all your selections will be lost' -->
           <button class="reset">Reset!</button>
       </div>
 
