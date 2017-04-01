@@ -1,3 +1,55 @@
+* {
+  box-sizing: border-box;
+}
+
+header {
+  max-width: 960px;
+  margin: 10px auto;
+  padding: 10px;
+  position: relative;
+  border: 1px solid black;
+  background: aqua;
+}
+
+.main {
+  max-width: 960px;
+  margin: 0 auto;
+  position: relative;
+  height: 500px;
+  border: 1px solid black;
+  padding: 20px;
+  background: silver;
+}
+
 body {
-  background: red;
+  font-family: 'Space Mono', monospace;
+  background: pink;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+li {
+  display: inline-block;
+  border: 1px solid black;
+  margin: 20px;
+  padding: 40px;
+  background: violet;
+}
+footer {
+  max-width: 960px;
+  margin: 10px auto;
+  padding: 10px;
+  position: relative;
+  background: purple;
+  text-align: center;
+  border: 1px solid black;
+  clear: both;
+}
+
+
+/* need to include set up for responsive here*/
+@media only screen and (max-width: 960px) {
+
 }
