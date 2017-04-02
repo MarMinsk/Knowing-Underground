@@ -1,67 +1,66 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>WDI Project 1</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="js/app.js" charset="utf-8"></script>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <title>WDI Project 1</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="js/app.js" charset="utf-8"></script>
+</head>
+<body>
 
-<header>
-  <!-- need to include a LU logo or something here & change font to be LU font style -->
+  <header>
+    <!-- need to include a LU logo or something here & change font to be LU font style -->
     <h1>Knowing Underground</h1>
     <h2>The London Underground Memory Game</h2>
-</header>
+  </header>
 
-<div class="main">
+  <div class="main">
 
-<div class="instructions">
-  <!-- this is where the game instructions will display -->
-  <p>The London Underground has 11 lines. Can you beat the clock and correctly guess the number of stations on each line?</p>
-</div>
-
-      <div class="lineName">
+    <div class="instructions">
+      <!-- this is where the game instructions will display -->
+      <p>The London Underground has 11 lines. Can you beat the clock and correctly guess the number of stations on each line?</p>
+    </div>
+    <div class="lineName">
       <!-- this is where the line or station name will be displayed -->
       <p>Tube Line Name:<span class="tubeLine">text</span></p>
-      </div>
-      <div>
-        <ul class="answers">
-          <!-- this is where the answers will be displayed -->
-          <!-- one answer will be correct and others will be incorrect -->
-          <li class="answer1">Option 1</li>
-          <li class="answer2">Option 2</li>
-          <li class="answer3">Option 3</li>
-<!-- could also include 'none' option to increase option variables -->
-          <!-- <li class="answer4">None</li> -->
-        </ul>
-      </div>
-
-<!-- this button will submit the player's selection (and hold it somewhere to calculate score) -->
-      <div class="submit">
-        <input type="submit" name="submit" value="Submit Your Answer">
-      </div>
-
-<!-- do i need a results here or have a results of all at game's end? -->
-      <!-- <div>
-          <p>Result: <span class="result"></span></p>
-      </div> -->
-
-      <div>
-        <!-- clicking on reset button should generate alert 'are you sure you want to reset, all your selections will be lost' -->
-          <button class="reset">Reset!</button>
-      </div>
-
-      <div class="score">
-      </div>
-
-      <div class="timer">
-      </div>
+    </div>
+    <div>
+      <ul class="answers">
+        <!-- this is where the answers will be displayed -->
+        <!-- one answer will be correct and others will be incorrect -->
+        <li class="answer1">Option 1</li>
+        <li class="answer2">Option 2</li>
+        <li class="answer3">Option 3</li>
+        <!-- could also include 'none' option to increase option variables -->
+        <!-- <li class="answer4">None</li> -->
+      </ul>
     </div>
 
-    <footer> Made by Marisa</footer>
+    <!-- this button will submit the player's selection (and hold it somewhere to calculate score) -->
+    <div class="submit">
+      <input type="submit" name="submit" value="Submit Your Answer">
+    </div>
 
-  </body>
+    <!-- do i need a results here or have a results of all at game's end? -->
+    <!-- <div>
+    <p>Result: <span class="result"></span></p>
+  </div> -->
+
+  <div>
+    <!-- clicking on reset button should generate alert 'are you sure you want to reset, all your selections will be lost' -->
+    <button class="reset">Reset!</button>
+  </div>
+
+  <div class="score">
+  </div>
+
+  <div class="timer">
+  </div>
+</div>
+
+<footer> Made by Marisa</footer>
+
+</body>
 </html>

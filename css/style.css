@@ -3,45 +3,50 @@
 }
 
 body {
-  /*font-family: 'Space Mono', monospace;*/
-  background: pink;
+  background: #EFF6FD;
 }
 footer {
   max-width: 960px;
   margin: 10px auto;
   padding: 10px;
   position: relative;
-  background: purple;
+  background: #1A5A92;
   text-align: center;
-  border: 1px solid black;
+  border: 1px solid #CCCCCC;
+  border-radius: 5px;
   clear: both;
 }
 h1, h2 {
   text-align: center;
+  /* why is the custom font not being recognized??*/
+  font-family: "London Tube", Arial;
 }
 li {
   display: inline-block;
-  border: 1px solid black;
+  border: 1px solid #CCCCCC;
+  border-radius: 5px;
   margin: 20px;
   padding: 40px;
-  background: violet;
+  background: #CCDDE8;
 }
 header {
   max-width: 960px;
   margin: 10px auto;
   padding: 10px;
   position: relative;
-  border: 1px solid black;
-  background: aqua;
+  border: 1px solid #CCCCCC;
+  border-radius: 5px;
+  background: #1A5A92;
 }
 .main {
   max-width: 960px;
-  margin: 0 auto;
-  position: relative;
   height: 400px;
-  border: 1px solid black;
+  margin: 0 auto;
   padding: 20px;
-  background: silver;
+  border: 1px solid #CCCCCC;
+  border-radius: 5px;
+  position: relative;
+  background: #F7F7F7;
   text-align: center;
 }
 .lineName {
@@ -53,15 +58,15 @@ header {
   padding: 10px;
 }
 .tubeLine {
-  border: 1px solid black;
+  border: 1px solid #CCCCCC;
   background: white;
   margin: 10px;
 }
 /*have downloaded the font & included in css folder - how to link to font?*/
 @font-face {
-   font-family: londonTube;
-   src: url(London-Tube.ttf);
-}
+    font-family: "London Tube";
+    src: url(http://www.fontspace.com/jonathan-paterson/london-tube.ttf) format("truetype");
+  }
 
 /* need to include set up for responsive here*/
 @media only screen and (max-width: 960px) {
