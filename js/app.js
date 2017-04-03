@@ -17,25 +17,30 @@ $(() => {
 // Computer then displays how many selections the player got correct (out of 11)
 // Game is timed and timer starts as soon as the first line is displayed
 
-// Pseudocode (for game logic)
-// player will click on 'Start' button to start the game (and timer? Where will 'Start' button sit on page?)
+
+// starting the game:
+// player will click on 'Start' button to start the game (and timer? Where will 'Start' button and 'Timer' sit on page?)
+
+// Pseudocode (for game logic):
 // game will require a for loop to iterate through the lines.length???
-// function that will randomly select a 'line' (from the 11 available key/value pairs)
-// function that will display this selection in the 'line name' div
-// function that will take the correct 'station number' value from the relevant key/value pair
-// function that will put this number into one of the three available 'li' elements (selected at ramdom)
-// function that will also generate two incorrect 'station number' options (using Math.random?)
-// function that will put these two numbers into the other two available 'li' elements
-// on.click function to allow player ot make their selection by clicking on 'li' element
+// first step is to create a function to randomly select a 'line' (from the 11 available key/value pairs)
+// then need a function to display this line selection in the 'line name' div
+// function to take the correct 'station number' value from the relevant key/value pair
+// function to put this number into one of the three available 'li' elements (selected at random)
+// function to also generate two incorrect 'station number' options (use Math.random?)
+// function to put these two numbers into the other two available 'li' elements
+// on.click function to allow player to make their selection by clicking on a 'li' element
 // (also need to include a function that allows player to change their choice)
 // on.click(??) on 'Submit' (button??) to allow player to submit their choice
 // game ends if player makes incorrect selection
 // function to hold player's choices until end of game (is this held in an array?)
 // if player makes correct selection, game iterates through to next randomly selected line
+
+//timing the game:
 // need to include a timer (To start as soon as player clicks on 'start'? Where will Timer sit on the page?)
 
 // key/value pair of lines & station numbers:
-const lines = {
+const linesAndStations = {
   'Bakerloo': 25,
   'Central': 49,
   'Circle': 36,
