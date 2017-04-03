@@ -12,6 +12,7 @@ footer {
   position: relative;
   background: #1A5A92;
   font-family: 'Raleway', sans-serif;
+  color: white;
   text-align: center;
   border: 1px solid #CCCCCC;
   border-radius: 5px;
@@ -19,15 +20,15 @@ footer {
 }
 h1, h2 {
   text-align: center;
-  /* why is the custom font not being recognized??*/
   font-family: 'Raleway', sans-serif;
+  color: white;
 }
 li {
   display: inline-block;
   border: 1px solid #CCCCCC;
   border-radius: 5px;
-  margin: 20px;
-  padding: 40px;
+  margin: 10px;
+  padding: 10px;
   background: #CCDDE8;
 }
 header {
@@ -64,9 +65,19 @@ header {
   background: white;
   margin: 10px;
 }
+
+.selected {
+  background: red;
+}
+
+#timer {
+  position: absolute;
+  bottom: 0;
+  left: 10;
+}
 /*have downloaded the font & included in css folder - how to link to font?*/
-@font-face {
-    font-family: "London Tube";
+/*@font-face {
+    font-family: "London Tube";*/
     /*src: url(http://www.fontspace.com/jonathan-paterson/london-tube.ttf) format("truetype");*/
   }
 

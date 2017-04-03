@@ -1,68 +1,58 @@
-$(() => {
-  // console.log('Ready'); is this all that need to be done to set up jQuery???
+$(init);
 
-  $('li').on('click', function() {
-    console.log($(this).attr('class'));
-  });
-});
+let stationCode;
+let answer;
+let time          = 0;
+let userAnswers   = [];
 
-// Tube map memory game - game play:
-// Player is presented with a one of the 11 London Underground lines (randomly generated)
-// Player is also presented with three possible options for number of stations (displayed as buttons)
-// One of the options is correct, the other two are incorrect
-// Player clicks on the button they think represents the correct number
-// Player then clicks on the 'Submit' button to submit their selection
-// Player is then presented with another randomly generated line and repeats the process
-// Process repeats until selections for all 11 lines have been submitted
-// Computer then displays how many selections the player got correct (out of 11)
-// Game is timed and timer starts as soon as the first line is displayed
+function init() {
+  $('.startGame button').on('click', startGame);
+}
 
+function startGame() {
+  createLineButtons();
+  pickRandomStation();
+  $('.lines li').on('click', pickAnswers);
+  $('.submit button').on('click', compareArrays);
+}
 
-// starting the game:
-// player will click on 'Start' button to start the game (and timer? Where will 'Start' button and 'Timer' sit on page?)
+function createLineButtons() {
+  const $lines = $('.lines');
+  for (const line in window.lines) {
+    $lines.append(`<li data-line="${line}">${window.lines[line]}</li>`);
+  }
+}
 
-// Pseudocode (for game logic):
-// game will require a for loop to iterate through the lines.length???
-// first step is to create a function to randomly select a 'line' (from the 11 available key/value pairs)
-// then need a function to display this line selection in the 'line name' div
-// function to take the correct 'station number' value from the relevant key/value pair
-// function to put this number into one of the three available 'li' elements (selected at random)
-// function to also generate two incorrect 'station number' options (use Math.random?)
-// function to put these two numbers into the other two available 'li' elements
-// on.click function to allow player to make their selection by clicking on a 'li' element
-// (also need to include a function that allows player to change their choice)
-// on.click(??) on 'Submit' (button??) to allow player to submit their choice
-// game ends if player makes incorrect selection
-// function to hold player's choices until end of game (is this held in an array?)
-// if player makes correct selection, game iterates through to next randomly selected line
+function pickRandomStation() {
+  stationCode = Object.keys(window.stations)[Math.floor(Math.random() * Object.keys(window.stations).length)];
+  $('.lineName p span').text(window.stations[stationCode]);
+  answer = window.linesAtStation[stationCode];
+}
 
-//timing the game:
-// need to include a timer (To start as soon as player clicks on 'start'? Where will Timer sit on the page?)
+function pickAnswers() {
+  $(this).toggleClass('selected');
+  $(this).hasClass('selected') ? userAnswers.push($(this).attr('data-line')) : userAnswers.splice(userAnswers.indexOf($(this).attr('data-line'), 1));
+}
 
-// key/value pair of lines & station numbers:
-const linesAndStations = {
-  'Bakerloo': 25,
-  'Central': 49,
-  'Circle': 36,
-  'District': 60,
-  'Hammersmith & City': 29,
-  'Jubilee': 27,
-  'Metropolitan': 34,
-  'Northern': 50,
-  'Picadilly': 53,
-  'Victoria': 16,
-  'Waterloo & City': 2
-  // is it correct that lines end w , rather than ;???
-};
+function compareArrays() {
+  console.log('Answer Array', answer.toString());
+  console.log('Users Array', userAnswers.toString());
 
+  // compares both arrays to see if they have the same values inside them
+  // userAnswers.sort().toString() === answer.sort().toString() ? correctAnswer() : wrongAnswer();
 
+  // more complex comparison of arrays
 
+}
 
-//reset
-$('.reset').on('click', function(){
-  // clears the html content of all elements
-  $('.answer1').html('');
-  $('.answer2').html('');
-  $('.answer3').html('');
-  $('.answer4').html('');
-});
+function correctAnswer() {
+  $('.display p').text('Correct!');
+  userAnswers = [];
+  $('.lines li').removeClass('selected');
+
+  pickRandomStation();
+}
+
+function wrongAnswer() {
+  $('.display p').text('Wrong!');
+}

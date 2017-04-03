@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="js/data.js" charset="utf-8"></script>
   <script src="js/app.js" charset="utf-8"></script>
 </head>
 <body>
@@ -24,26 +25,28 @@
       <!-- this is where the game instructions will display -->
       <p>The London Underground has 11 lines. How quickly can you correctly guess the number of stations on each line? </p>
     </div>
+
+    <div class="startGame">
+      <button type="button" name="button">Start</button>
+    </div>
     <div class="lineName">
       <!-- this is where the line or station name will be displayed -->
-      <p>Tube Line Name:<span class="tubeLine">text</span></p>
+      <p>Tube Station: <span></span></p>
     </div>
     <div>
-      <ul class="answers">
-        <!-- this is where the answers will be displayed -->
-        <!-- one answer will be correct and others will be incorrect -->
-        <li class="answer1">Option 1</li>
-        <li class="answer2">Option 2</li>
-        <li class="answer3">Option 3</li>
-        <!-- could also include 'none' option to increase option variables -->
-        <!-- <li class="answer4">None</li> -->
+      <ul class="lines">
       </ul>
+    </div>
+
+    <div class="display">
+      <p></p>
     </div>
 
     <!-- this button will submit the player's selection (and hold it somewhere to calculate score) -->
     <div class="submit">
-      <input type="submit" name="submit" value="Submit Your Answer">
+      <button name="button">Submit Your Answer</button>
     </div>
+
 
     <!-- do i need a results here or have a results of all at game's end? -->
     <!-- <div>
@@ -55,11 +58,10 @@
     <button class="reset">Reset!</button>
   </div>
 
-  <div class="score">
+  <div>
+    <p id="timer">0</p>
   </div>
 
-  <div class="timer">
-  </div>
 </div>
 
 <footer> GA WDI Project 1 - Made by Marisa</footer>
