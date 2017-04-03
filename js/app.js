@@ -18,15 +18,18 @@ let userAnswers   = [];
 function init() {
   // on clicking on the button with the class 'startGame' the startGame function below is enacted
   // I made this 'one' click so that it isn't possible to click 'Start' button multiple times to add additional lines array to game board
-  $('.startGame button').one('click', startGame);
+  $('.startGame button').on('click', startGame);
+  $('.reset').on('click', clearContents);
+  $('.lines').on('click', 'li', pickAnswers);
 }
 
 // this function is called in the the 'init' function above
-function startGame() {
-//
+function startGame(e) {
+  e.stopPropagation();
+
+  $(this).off('click');
   createLineButtons();
   pickRandomStation();
-  $('.lines li').on('click', pickAnswers);
   $('.submit button').on('click', compareArrays);
 }
 // this function adds the buttons for the 11 different lines to the html page
@@ -35,7 +38,7 @@ function createLineButtons() {
   const $lines = $('.lines');
 
   for (const line in window.lines) {
-    // line append is creating these elements - hidden data atrirbute class called data-line is assigned to each li item taking the line frm the data.js file - the text in the li is populated by the name of the relevant line ${...} string interpolation 
+    // line append is creating these elements - hidden data atrirbute class called data-line is assigned to each li item taking the line frm the data.js file - the text in the li is populated by the name of the relevant line ${...} string interpolation
     $lines.append(`<li data-line="${line}">${window.lines[line]}</li>`);
   }
 }
@@ -55,7 +58,8 @@ function compareArrays() {
   console.log('Answer Array', answer.toString());
   console.log('Users Array', userAnswers.toString());
 
-  // compares both arrays to see if they have the same values inside them
+  // compares userAnswer and (correct) answer arrays to see if they have the same values inside them
+  //.sort() to put multiple userAnswer and answer in same order .toString() to convert to string (from????) - ternary ? correctAnswer() calls that function : wrongAnswer() calls that function (below)
   userAnswers.sort().toString() === answer.sort().toString() ? correctAnswer() : wrongAnswer();
 
   // more complex comparison of arrays
@@ -72,4 +76,16 @@ function correctAnswer() {
 
 function wrongAnswer() {
   $('#gameResponse').text('Wrong!');
+}
+
+function clearContents() {
+  $('.lines').empty();
+  $('.lineName p span').text('');
+  $('#gameResponse').text('');
+  stationCode = null;
+  answer      = null;
+  userAnswers = [];
+  
+  $('.submit button').off('click');
+  $('.startGame button').on('click', startGame);
 }

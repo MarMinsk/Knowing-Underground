@@ -55,6 +55,7 @@ header {
 .lineName {
   text-align: left;
   font-weight: bold;
+  font-family: 'Raleway', sans-serif;
 }
 .reset {
   margin: 20px;
