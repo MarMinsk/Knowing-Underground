@@ -26,12 +26,12 @@
       <p>Can you correctly match every London Tube station with it's corresponding line?</p>
     </div>
 
-    <div class="startGame">
-      <button type="button" name="button">Start</button>
+    <div>
+      <button class="startGame" type="button" name="button">Start</button>
     </div>
     <div class="lineName">
       <!-- this is where the line or station name will be displayed -->
-      <p>Tube Station: <span></span></p>
+      <p><b>Tube Station</b>: <span></span></p>
     </div>
     <div>
       <ul class="lines">
@@ -44,19 +44,25 @@
     </div>
 
     <!-- this button will submit the player's selection-->
-    <div class="submit">
-      <button name="button">Submit Your Answer</button>
+    <div>
+      <button class="submit" name="button">Submit Your Answer</button>
     </div>
 
     <!-- clicking on reset button should generate warning 'Are you sure you want to reset? All your progress will be lost.' -->
   <div>
-    <button class="reset">Reset!</button>
+    <button class="reset" name="button">Play Again!</button>
   </div>
 
 <!-- this will be a counter that counts the length of game play (in seconds/minutes). this will commence as soon as the player selects 'start'  -->
   <div>
-    <p id="timer">0</p>
+    <p id="timer">Timer: 0</p>
   </div>
+
+<!-- This is the user score based on correct guesses. Score will increment up by 1 for every station corretly guessed  -->
+  <div>
+    <p>Score: <span id="score"></span></p>
+  </div>
+
 
 </div>
 

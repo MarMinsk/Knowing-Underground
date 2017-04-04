@@ -13,6 +13,7 @@ let answer;
 let time          = 0;
 // userAnswers will be an array that will be populated with the player's selection(s)
 let userAnswers   = [];
+let score         = 0;
 
 // this function 'init' starts the game (is that all or does it do something more????)
 function init() {
@@ -32,6 +33,7 @@ function startGame(e) {
   pickRandomStation();
   $('.submit button').on('click', compareArrays);
 }
+
 // this function adds the buttons for the 11 different lines to the html page
 function createLineButtons() {
   // this creates a variable $lines, which populates the html 'lines' class
@@ -54,7 +56,7 @@ function pickAnswers() {
   $(this).hasClass('selected') ? userAnswers.push($(this).attr('data-line')) : userAnswers.splice(userAnswers.indexOf($(this).attr('data-line'), 1));
 }
 
-// need to remove this at some point p
+// need to remove this at some point so players can't see the correct answer in console log
 function compareArrays() {
   console.log('Answer Array', answer.toString());
   console.log('Users Array', userAnswers.toString());
@@ -63,14 +65,38 @@ function compareArrays() {
   //.sort() to put multiple userAnswer and answer in same order .toString() to convert to string (from what, integer???)
   // ternary ? correctAnswer() calls that function : wrongAnswer() calls that function (below)
   userAnswers.sort().toString() === answer.sort().toString() ? correctAnswer() : wrongAnswer();
-  if (answer.length === userAnswers.length && userAnswers.every(function(element, index)){
-    console.log('same');
-  } else
-    console.log('different');
+
+  // need a more complex comparison of arrays - need to compare 'Users Array' with 'Answer Array' to check whether both the length and the contents of the array match
+
+  // answer.sort() => [1,2,3,4,5]
+  //
+  // answer.indexOf(userAnswers.sort().toString()) != -1 {
+  //   // 1/answer.length
+  // } else if {
+  //
+  // }
+
+//   var isSame = answer.length == userAnswers.length && answer.every(function(element, index) {
+//     return element === userAnswers[index];
+//   });
+//
+//   console.log(isSame);
+//
+
+// need to include a score function -
+// current score is counting each click, not correct clicks
+//   var newscore = 0;
+//   if (userAnswers === answer) {
+//     // console log not working
+//     console.log('score!');
+//     score++;
+//     $('#score').text(score);
+//     $('answer').val('');
+//   } else  {
+//     score;
+//   }
+//
 }
-
-// more complex comparison of arrays - need to compare 'Users Array' with 'Answer Array' to check whether both the length and the contents of the array match
-
 
 function correctAnswer() {
   $('#gameResponse').text('Correct!');
