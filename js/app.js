@@ -54,17 +54,23 @@ function pickAnswers() {
   $(this).hasClass('selected') ? userAnswers.push($(this).attr('data-line')) : userAnswers.splice(userAnswers.indexOf($(this).attr('data-line'), 1));
 }
 
+// need to remove this at some point p
 function compareArrays() {
   console.log('Answer Array', answer.toString());
   console.log('Users Array', userAnswers.toString());
 
   // compares userAnswer and (correct) answer arrays to see if they have the same values inside them
-  //.sort() to put multiple userAnswer and answer in same order .toString() to convert to string (from????) - ternary ? correctAnswer() calls that function : wrongAnswer() calls that function (below)
+  //.sort() to put multiple userAnswer and answer in same order .toString() to convert to string (from what, integer???)
+  // ternary ? correctAnswer() calls that function : wrongAnswer() calls that function (below)
   userAnswers.sort().toString() === answer.sort().toString() ? correctAnswer() : wrongAnswer();
-
-  // more complex comparison of arrays
-
+  if (answer.length === userAnswers.length && userAnswers.every(function(element, index)){
+    console.log('same');
+  } else
+    console.log('different');
 }
+
+// more complex comparison of arrays - need to compare 'Users Array' with 'Answer Array' to check whether both the length and the contents of the array match
+
 
 function correctAnswer() {
   $('#gameResponse').text('Correct!');
@@ -75,6 +81,7 @@ function correctAnswer() {
 }
 
 function wrongAnswer() {
+  // Change text to 'You got x out of y lines correct. Try again.', where x is the player's selection and y is the correct number of stations.
   $('#gameResponse').text('Wrong!');
 }
 
@@ -85,7 +92,7 @@ function clearContents() {
   stationCode = null;
   answer      = null;
   userAnswers = [];
-  
+
   $('.submit button').off('click');
   $('.startGame button').on('click', startGame);
 }
