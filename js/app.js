@@ -10,7 +10,7 @@ let stationCode;
 // answer is window.linesAtStation[stationCode], used in function pickRandomStation();
 let answer;
 // time will be the game timer
-let timer         = 0;
+let $timer         = 30;
 // userAnswers will be an array that will be populated with the player's selection(s)
 let userAnswers   = [];
 let score         = 0;
@@ -34,6 +34,19 @@ function startGame(e) {
   createLineButtons();
   pickRandomStation();
   $('.submit').on('click', compareArrays);
+  startTimer();
+
+  const counter = setInterval(startTimer, 1000);
+
+  function startTimer() {
+    $timer -=1;
+    console.log($timer);
+    if ($timer === 0) {
+      alert('sorry, out of time');
+      clearInterval(counter);
+    }
+    $('#timer').text($timer);
+  }
 }
 
 // this function adds the buttons for the 11 different lines to the html page
@@ -111,17 +124,3 @@ function clearContents() {
   // this could work with or without the button. prefix
   $('button.startGame').on('click', startGame);
 }
-function startTimer(){
-  var counter = 5;
-  setInterval(function() {
-    counter--;
-    if (counter === 0) {
-      alert('sorry, out of time');
-      clearInterval(counter);
-    }
-  }, 1000);
-}
-
-$('#timer').click(function(){
-  startTimer();
-});
