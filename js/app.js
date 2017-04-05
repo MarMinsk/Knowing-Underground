@@ -10,7 +10,7 @@ let stationCode;
 // answer is window.linesAtStation[stationCode], used in function pickRandomStation();
 let answer;
 // time will be the game timer
-let time          = 0;
+let timer         = 0;
 // userAnswers will be an array that will be populated with the player's selection(s)
 let userAnswers   = [];
 let score         = 0;
@@ -19,19 +19,21 @@ let score         = 0;
 function init() {
   // on clicking on the button with the class 'startGame' the startGame function below is enacted
   // I made this 'one' click so that it isn't possible to click 'Start' button multiple times to add additional lines array to game board
-  $('.startGame button').on('click', startGame);
+  // start game can happen with or without button.
+  $('button.startGame').on('click', startGame);
   $('.reset').on('click', clearContents);
   $('.lines').on('click', 'li', pickAnswers);
 }
 
 // this function is called in the the 'init' function above
 function startGame(e) {
+  // console.log('start game');
   e.stopPropagation();
 
   $(this).off('click');
   createLineButtons();
   pickRandomStation();
-  $('.submit button').on('click', compareArrays);
+  $('.submit').on('click', compareArrays);
 }
 
 // this function adds the buttons for the 11 different lines to the html page
@@ -74,31 +76,17 @@ function compareArrays() {
   //   // 1/answer.length
   // } else if {
   //
-  // }
-
+}
 //   var isSame = answer.length == userAnswers.length && answer.every(function(element, index) {
 //     return element === userAnswers[index];
 //   });
 //
 //   console.log(isSame);
-//
-
-// need to include a score function -
-// current score is counting each click, not correct clicks
-//   var newscore = 0;
-//   if (userAnswers === answer) {
-//     // console log not working
-//     console.log('score!');
-//     score++;
-//     $('#score').text(score);
-//     $('answer').val('');
-//   } else  {
-//     score;
-//   }
-//
-}
+//}
 
 function correctAnswer() {
+  score++;
+  $('#score').text('' +score);
   $('#gameResponse').text('Correct!');
   userAnswers = [];
   $('.lines li').removeClass('selected');
@@ -119,6 +107,21 @@ function clearContents() {
   answer      = null;
   userAnswers = [];
 
-  $('.submit button').off('click');
-  $('.startGame button').on('click', startGame);
+  $('.submit').off('click');
+  // this could work with or without the button. prefix
+  $('button.startGame').on('click', startGame);
 }
+function startTimer(){
+  var counter = 5;
+  setInterval(function() {
+    counter--;
+    if (counter === 0) {
+      alert('sorry, out of time');
+      clearInterval(counter);
+    }
+  }, 1000);
+}
+
+$('#timer').click(function(){
+  startTimer();
+});
