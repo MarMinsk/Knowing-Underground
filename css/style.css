@@ -1,52 +1,91 @@
 * {
-  box-sizing: border-box;
+  box-sizing: inherit;
 }
 
+.B {
+  background: #B36305;
+}
+
+.C {
+  background: #E32017;
+}
+
+.D {
+  background: 	#00782A;
+}
+
+.H {
+  	background: #F3A9BB;
+}
+
+.J {
+  background: 	#A0A5A9;
+}
+
+.M {
+  background: #9B0056;
+}
+
+.N {
+  background: #000000;
+}
+
+.P {
+  background: #003688;
+}
+
+.V {
+  background: #0098D4;
+}
+
+.W {
+  background: 	#95CDBA;
+}
 body {
   /*background: #EFF6FD;*/
-  background-image: url(http://creativecrunk.com/wp-content/uploads/2014/11/London-Underground-logo.png);
   background-repeat: no-repeat;
   background-position: center;
+  /*border: 4px solid #0019a8;*/
+
 }
 footer {
   max-width: 960px;
   margin: 10px auto;
   padding: 10px;
   position: relative;
-  background: #1A5A92;
-  font-family: 'Raleway', sans-serif;
-  color: white;
+  /*background: #1A5A92;*/
+  font-family: 'Cabin', sans-serif;
+  color: black;
   text-align: center;
-  border: 1px solid #CCCCCC;
+  /*border: 1px solid #0019a8;*/
   border-radius: 5px;
   clear: both;
 }
 h1, h2 {
   text-align: center;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Cabin', sans-serif;
   color: white;
 }
 li {
   display: inline-block;
-  border: 1px solid #CCCCCC;
   border-radius: 5px;
   margin: 10px;
   padding: 10px;
-  background: #CCDDE8;
+  background: #dc241f;
+  color: white;
 }
 header {
   max-width: 960px;
   margin: 10px auto;
   padding: 10px;
   position: relative;
-  border: 1px solid #CCCCCC;
+  /*border: 1px solid #0019a8;*/
   border-radius: 5px;
-  background: #1A5A92;
 }
 button {
   margin: 20px;
   padding: 10px;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Cabin', sans-serif;
   border: 2px solid #CCCCCC;
   background: #EFF6FD;
   border-radius: 5px;
@@ -56,33 +95,35 @@ button {
   height: 400px;
   margin: 0 auto;
   padding: 20px;
-  border: 4px solid #CCCCCC;
+  /*border: 1px solid #0019a8;*/
   border-radius: 5px;
   position: relative;
-  background: #F7F7F7;
   opacity: 0.9;
   text-align: center;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Cabin', sans-serif;
   overflow: auto;
+  color: black;
 }
 .lineName {
   text-align: left;
   font-weight: bold;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Cabin', sans-serif;
 }
 .reset {
   margin: 20px;
   padding: 10px;
 }
 .tubeLine {
-  border: 1px solid #CCCCCC;
+  /*border: 1px solid #0019a8;*/
   background: white;
   margin: 10px;
 }
 
 .selected {
-  background: red;
+  background: white;
+  color: black;
 }
+
 
 /* neeed to work out how to position timer and score elements better on the page*/
 #timer {
@@ -97,11 +138,57 @@ button {
   left: 10;
 }
 
+.scoreboard1 {
+  position: relative;
+  float: left;
+  text-align: center;
+  color: black;
+}
+
+
+.scoreboard2 {
+  position: relative;
+  float: right;
+  text-align: center;
+  color: black;
+}
+
+
+img {
+  height: 20%;
+  width: 20%;
+}
+
+.submit {
+  background-color: #0019a8;
+  color: white;
+  border-radius: 42px;
+}
+
+.startGame {
+  width: 79px;
+  font-size: 15px;
+}
+
+.startGame:hover {
+  background-color: #0019a8;
+  color: white;
+}
+
+.reset:hover {
+  background-color: #0019a8;
+  color: white;
+}
+
+.reset {
+  width: 79px;
+  font-size: 15px;
+}
+
 /*have downloaded the font & included in css folder - how to link to font?*/
 /*@font-face {
-    font-family: "London Tube";*/
-    /*src: url(http://www.fontspace.com/jonathan-paterson/london-tube.ttf) format("truetype");*/
-  }
+font-family: "London Tube";*/
+/*src: url(http://www.fontspace.com/jonathan-paterson/london-tube.ttf) format("truetype");*/
 
 /* need to include set up for responsive here*/
 @media only screen and (max-width: 960px) {

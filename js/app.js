@@ -10,7 +10,7 @@ let stationCode;
 // answer is window.linesAtStation[stationCode], used in function pickRandomStation();
 let answer;
 // time will be the game timer
-let $timer         = 30;
+let $timer         = 31;
 // userAnswers will be an array that will be populated with the player's selection(s)
 let userAnswers   = [];
 let score         = 0;
@@ -20,6 +20,7 @@ function init() {
   // on clicking on the button with the class 'startGame' the startGame function below is enacted
   // I made this 'one' click so that it isn't possible to click 'Start' button multiple times to add additional lines array to game board
   // start game can happen with or without button.
+  $('.scoreboard1, .scoreboard2').hide();
   $('button.startGame').on('click', startGame);
   $('.reset').on('click', clearContents);
   $('.lines').on('click', 'li', pickAnswers);
@@ -27,6 +28,7 @@ function init() {
 
 // this function is called in the the 'init' function above
 function startGame(e) {
+  $('.scoreboard1, .scoreboard2').show();
   // console.log('start game');
   e.stopPropagation();
 
@@ -36,16 +38,19 @@ function startGame(e) {
   $('.submit').on('click', compareArrays);
   startTimer();
 
+  // countdown timer function - needs to be included here to be called by startGame function
   const counter = setInterval(startTimer, 1000);
-
   function startTimer() {
     $timer -=1;
-    console.log($timer);
+    //console.log($timer);
     if ($timer === 0) {
       alert('sorry, out of time');
       clearInterval(counter);
+      // this reloads the page (to avoid the timer counting into negative numbers)
+      document.location.reload();
     }
-    $('#timer').text($timer);
+    //displays the countdown timer (text) in the 'timer' id div
+    $('#timer').text('' +$timer);
   }
 }
 
@@ -56,7 +61,7 @@ function createLineButtons() {
 
   for (const line in window.lines) {
     // line append is creating these elements - hidden data atrirbute class called data-line is assigned to each li item taking the line frm the data.js file - the text in the li is populated by the name of the relevant line ${...} string interpolation
-    $lines.append(`<li data-line="${line}">${window.lines[line]}</li>`);
+    $lines.append(`<li data-line="${line}" class="${line}">${window.lines[line]}</li>`);
   }
 }
 
@@ -71,31 +76,31 @@ function pickAnswers() {
   $(this).hasClass('selected') ? userAnswers.push($(this).attr('data-line')) : userAnswers.splice(userAnswers.indexOf($(this).attr('data-line'), 1));
 }
 
-// need to remove this at some point so players can't see the correct answer in console log
 function compareArrays() {
+// need to remove console.log at some point so players can't see the correct answer in console log
   console.log('Answer Array', answer.toString());
   console.log('Users Array', userAnswers.toString());
-
-  // compares userAnswer and (correct) answer arrays to see if they have the same values inside them
-  //.sort() to put multiple userAnswer and answer in same order .toString() to convert to string (from what, integer???)
-  // ternary ? correctAnswer() calls that function : wrongAnswer() calls that function (below)
-  userAnswers.sort().toString() === answer.sort().toString() ? correctAnswer() : wrongAnswer();
-
-  // need a more complex comparison of arrays - need to compare 'Users Array' with 'Answer Array' to check whether both the length and the contents of the array match
-
-  // answer.sort() => [1,2,3,4,5]
-  //
-  // answer.indexOf(userAnswers.sort().toString()) != -1 {
-  //   // 1/answer.length
-  // } else if {
-  //
-}
-//   var isSame = answer.length == userAnswers.length && answer.every(function(element, index) {
-//     return element === userAnswers[index];
-//   });
 //
-//   console.log(isSame);
-//}
+//   // compares userAnswer and (correct) answer arrays to see if they have the same values inside them
+//   //.sort() to put multiple userAnswers and answer in same order .toString() to convert to string (from what, integer???)
+//   // ternary ? correctAnswer() calls that function : wrongAnswer() calls that function (below)
+  userAnswers.sort().toString() === answer.sort().toString() ? correctAnswer() : wrongAnswer();
+}
+
+// compare userAnswers to answer array:
+// if match, trigger correctAnswer function (below)
+// if not match, wrongAnswer should be 'Not quite. You have x out of y (e.g. 0 out of 1 or 1 out of 3) correct'
+//
+// answer.sort() => [1,2,3,4,5]
+//
+if (answer.indexOf(userAnswers.sort().toString()) !== -1) {
+  console.log('same length');
+} else {
+  console.log('different length');
+}
+//
+
+
 
 function correctAnswer() {
   score++;
@@ -124,3 +129,11 @@ function clearContents() {
   // this could work with or without the button. prefix
   $('button.startGame').on('click', startGame);
 }
+
+
+// things to sort out:
+// why timer is not displaying properly in 'time remaining' span
+// how to include more complex logic - so that player sees 'you got 1 out of 3 lines correct'
+// how to avoid player having to click 'start' when 'play again' is clicked for next game play
+// how to stop timer going into negative count (currently using page reload to work around this but would like a better solution)
+// how to add a range of 'game response' options e.g. 'correct!' 'great!' 'well done' 'not quite' 'try again' etc...

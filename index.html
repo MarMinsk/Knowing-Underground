@@ -8,15 +8,16 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
   <script src="js/data.js" charset="utf-8"></script>
   <script src="js/app.js" charset="utf-8"></script>
 </head>
 <body>
 
   <header>
-    <!-- need to include a LU logo or something here & change font to be LU font style -->
-    <h1>Knowing Underground</h1>
-    <h2>The London Underground Memory Game</h2>
+    <div id="logo1">
+  <h1><img src="images/logo.png" /></h1>
+
   </header>
 
   <div class="main">
@@ -29,6 +30,8 @@
     <div>
       <button class="startGame" type="button" name="button">Start</button>
     </div>
+    <!-- <p>Time remaining:<span id="timer"></span></p> -->
+
     <div class="lineName">
       <!-- this is where the line or station name will be displayed -->
       <p><b>Tube Station</b>: <span></span></p>
@@ -38,7 +41,7 @@
       </ul>
     </div>
 
-<!-- this is where the game displays whether player's selection is either correct or wrong - if wrong it should tell the player how many more they need to select  -->
+    <!-- this is where the game displays whether player's selection is either correct or wrong - if wrong it should tell the player how many more they need to select  -->
     <div class="display">
       <p id="gameResponse"></p>
     </div>
@@ -49,24 +52,26 @@
     </div>
 
     <!-- clicking on reset button should generate warning 'Are you sure you want to reset? All your progress will be lost.' -->
-  <div>
-    <button class="reset" name="button">Play Again!</button>
+    <div>
+      <button class="reset" name="button">Play Again!</button>
+    </div>
+
+    <!-- this will be a counter that counts the length of game play (in seconds/minutes). this will commence as soon as the player selects 'start'  -->
+    <div class="scoreboard1">
+    <span id="timer"></span>
+    <p>Time Left</p>
   </div>
-
-<!-- this will be a counter that counts the length of game play (in seconds/minutes). this will commence as soon as the player selects 'start'  -->
-  <div>
-    <p id="timer">Timer: 0</p>
-  </div>
-
-<!-- This is the user score based on correct guesses. Score will increment up by 1 for every station corretly guessed  -->
-  <div>
-    <p>Score: <span id="score"></span></p>
-  </div>
-
-
+  <div class="scoreboard2">
+<p>Score:<span id="score"></span></p>
 </div>
+  </div>
 
-<footer> GA WDI Project 1 - Made by Marisa</footer>
+  <!-- This is the user score based on correct guesses. Score will increment up by 1 for every station corretly guessed  -->
+  <!-- <div>
+    <p>Score:<span id="score"></span></p>
+  </div> -->
+
+  <footer> GA WDI Project 1 - Made by Marisa</footer>
 
 </body>
 </html>
