@@ -22,7 +22,8 @@ function init() {
   // on clicking on the button with the class 'startGame' the startGame function below is enacted (start game can happen with or without button. prefix)
   $('button.startGame').on('click', startGame);
   // .hides() hides the score and timer until startGame function is called
-  $('.scoreboard1, .scoreboard2').hide();
+  $('.scoreboard1, .scoreboard2, .lineName, .submit, .reset').hide();
+  $('#tubeImage').show();
   // clicking on 'reset' button triggers clearContents function below
   $('.reset').on('click', clearContents);
   // clicking on list items in lines class triggers pickAnswers function below
@@ -33,11 +34,12 @@ function init() {
 // and includes all the functions that are needed to start the game
 function startGame(e) {
   // .show() reveals the score and timer when 'start' button is clicked
-  $('.scoreboard1, .scoreboard2').show();
+  $('.scoreboard1, .scoreboard2, .lineName, .submit, .reset').show();
+  $('#tubeImage').hide();
   // console.log('start game');
-  // prevents the event from bubbling up the DOM tree & prevents any parent event handlers from being notified of the event
+  // e.stopPropagation prevents the event from bubbling up the DOM tree & prevents any parent event handlers from being notified of the event
   e.stopPropagation();
-  // this relates to the .on('click') in init function above (how does this relationship work?)
+  // relates to the .on('click') in init function above (how does this relationship work?)
   $(this).off('click');
   // triggers createLineButtons function below
   createLineButtons();
@@ -71,26 +73,35 @@ function createLineButtons() {
   // this creates a variable $lines, which populates the html 'lines' class
   const $lines = $('.lines');
 
+// 'in' - for each item inside window.lines create a placeholder for each item and then iterate through the array 
   for (const line in window.lines) {
     // line append is creating these elements - hidden data atrirbute class called data-line is assigned to each li item taking the line from the data.js file - the text in the li is populated by the name of the relevant line ${...} string interpolation
     $lines.append(`<li data-line="${line}" class="${line}">${window.lines[line]}</li>`);
   }
 }
-
+// this function will randomly select the stations to be included in the game
 function pickRandomStation() {
+  // station code variable - key taken from 'stations' object (in data.js file), Math.random method to make random station selection
   stationCode = Object.keys(window.stations)[Math.floor(Math.random() * Object.keys(window.stations).length)];
+  // p span in lineName class is updated with text of the randomly selected stationCode
   $('.lineName p span').text(window.stations[stationCode]);
+  // answer variable array (globally declared) is updated to include the randomly selected stationCode
   answer = window.linesAtStation[stationCode];
 }
 
+// this function is called by the on.click of the li elements in the 'line' class and allows player to make their selection
 function pickAnswers() {
+  // .toggleClass allows player to toggle between selecting and unselecting a li
   $(this).toggleClass('selected');
+  // conditional (ternary) operator - if the li has class 'selected' we get the data-line attribute form the li and push it into user ansewr array
+// if deit will be pushed into the
   $(this).hasClass('selected') ? userAnswers.push($(this).attr('data-line')) : userAnswers.splice(userAnswers.indexOf($(this).attr('data-line'), 1));
 }
 
-// this function compares the answer provided by the player with the (correct) game answer
+// this function is called by on.click of 'submit' in startGame function
+// compares the answer provided by the player with the (correct) game answer
 function compareArrays() {
-// need to remove console.log at some point so players can't see the correct answer in console log
+// comment out console.log  so players can't see the correct answer in console log
   console.log('Answer Array', answer.toString());
   console.log('Users Array', userAnswers.toString());
 //
