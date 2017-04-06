@@ -4,14 +4,14 @@
 
 .B { background: #B36305; }
 .C { background: #E32017; }
-.D { background: 	#00782A; }
+.D { background: #00782A; }
 .H { background: #F3A9BB; }
-.J { background: 	#A0A5A9; }
+.J { background: #A0A5A9; }
 .M { background: #9B0056; }
 .N { background: #000000; }
 .P { background: #003688; }
 .V { background: #0098D4; }
-.W { background: 	#95CDBA; }
+.W { background: #95CDBA; }
 
 body {
   background: #F7F7F7;
@@ -20,172 +20,161 @@ body {
 }
 
 main {
-  /*max-width: 960px;*/
-  height: 425px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 2px solid #0019a8;
-  background: white;
-  position: relative;
-  opacity: 0.9;
-  text-align: center;
-  font-family: 'Cabin', sans-serif;
-  overflow: auto;
-  color: #2D3039;
-  border-radius: 5px;
+  height:           425px;
+  margin:           0 auto;
+  padding:          20px;
+  border:           2px solid #0019a8;
+  background:       white;
+  position:         relative;
+  opacity:          0.9;
+  text-align:       center;
+  font-family:  '   Cabin', sans-serif;
+  overflow:         auto;
+  color:            #2D3039;
+  border-radius:    5px;
   background-image: url("http://cdn.londonandpartners.com/images/explorer-map/tubemap-2012-12.png");
-  background-size: cover;
+  background-size:  cover;
 }
 
 footer {
-  margin: 10px auto;
-  padding: 10px;
-  position: relative;
-  font-family: 'Cabin', sans-serif;
-  color: #2D3039;
-  text-align: center;
-  border: 2px solid #0019a8;
-  background: white;
-  border-radius: 5px;
-  clear: both;
+  margin:           10px auto;
+  padding:          10px;
+  position:         relative;
+  font-family:      'Cabin', sans-serif;
+  color:            #2D3039;
+  text-align:       center;
+  border:           2px solid #0019a8;
+  background:       white;
+  border-radius:    5px;
+  clear:            both;
 
 }
 h1, h2 {
-  text-align: center;
-  font-family: 'Cabin', sans-serif;
-  color: white;
+  text-align:       center;
+  font-family:      'Cabin', sans-serif;
+  color:            white;
 }
 li {
-  display: inline-block;
-  border-radius: 5px;
-  margin: 10px;
-  padding: 10px;
-  /*background: #dc241f;*/
-  color: white;
+  display:          inline-block;
+  border-radius:    5px;
+  margin:           10px;
+  padding:          10px;
+  color:            white;
 }
 
 header {
-  /*max-width: 960px;*/
-  margin: 10px auto;
-  padding: 10px;
-  position: relative;
-  border: 2px solid #0019a8;
-  background: white;
-  border-radius: 5px;
-  /*margin-left:200px;;*/
-
+  margin:          10px auto;
+  padding:         10px;
+  position:        relative;
+  border:          2px solid #0019a8;
+  background:      white;
+  border-radius:   5px;
 }
+
 button {
-  margin: 20px;
-  padding: 10px;
-  font-family: 'Cabin', sans-serif;
-  border: 2px solid #0019a8;
-  background: #EFF6FD;
-  border-radius: 5px;
-  outline: none;
+  margin:          20px;
+  padding:         10px;
+  font-family:     'Cabin', sans-serif;
+  border:          2px solid #0019a8;
+  background:      #EFF6FD;
+  border-radius:   5px;
+  outline:         none;
 }
 
 .lineName {
-  text-align: left;
-  font-weight: bold;
-  font-family: 'Cabin', sans-serif;
+  text-align:      left;
+  font-weight:     bold;
+  font-family:     'Cabin', sans-serif;
 }
+
 .reset {
-  margin: 20px;
-  padding: 10px;
+  margin:           20px;
+  padding:          10px;
 }
+
 .tubeLine {
-  /*border: 1px solid #0019a8;*/
-  background: white;
-  margin: 10px;
+  background:      white;
+  margin:          10px;
 }
 
 .selected {
-  background: white;
-  color: #0019a8;
-  border: 2px solid #0019a8;
+  background:      white;
+  color:           #0019a8;
+  border:          2px solid #0019a8;
 }
-/*#tubeImage {
-width: 100%;
-height: 100%;
-}*/
 
 #timer {
-  position: absolute;
-  bottom: 0;
-  left: 10;
-  text-align: center;
+  position:        absolute;
+  bottom:          0;
+  left:            10;
+  text-align:      center;
 }
 
 #score {
-  position: absolute;
-  bottom: 5;
-  left: 10;
+  position:        absolute;
+  bottom:          5;
+  left:            10;
 }
 
 .stationName {
-  border: 2px solid #0019a8;
-  border-radius: 5px;
-  background: white;
-  padding: 5px 20px;
-  margin-left: 20px;
+  border:          2px solid #0019a8;
+  border-radius:   5px;
+  background:      white;
+  padding:         5px 20px;
+  margin-left:     20px;
 }
 
 .scoreboard1 {
-  position: relative;
-  float: left;
-  text-align: center;
-  color: #2D3039;
+  position:        relative;
+  float:           left;
+  text-align:      center;
+  color:           #2D3039;
 }
 
 .scoreboard2 {
-  position: relative;
-  float: right;
-  text-align: center;
-  color: #2D3039;
+  position:        relative;
+  float:           right;
+  text-align:      center;
+  color:           #2D3039;
 }
-/*resizes the logo*/
+
 img {
-  height: 20%;
-  width: 20%;
+  height:          20%;
+  width:           20%;
 
 }
 
 .submit {
   background-color: #0019a8;
-  color: white;
-  border-radius: 42px;
+  color:            white;
+  border-radius:    42px;
 }
 
 .startGame {
-  width: 79px;
-  font-size: 15px;
+  width:            79px;
+  font-size:        15px;
 }
 
 .startGame:hover {
   background-color: #0019a8;
-  color: white;
+  color:            white;
 }
 
 .reset:hover {
   background-color: #0019a8;
-  color: white;
+  color:            white;
 }
 
 .reset {
-  width: 79px;
-  font-size: 15px;
+  width:            79px;
+  font-size:        15px;
 }
 
 .lineisit {
-  color: #2D3039;
-  text-align: center;
+  color:            #2D3039;
+  text-align:       center;
 }
 
-
-
-
-/* need to include set up for responsive here*/
 @media only screen and (max-width: 960px) {
 
 }

@@ -23,11 +23,7 @@ function startGame(e) {
   pickRandomStation();
   $('.submit').on('click', compareArrays);
   startTimer();
-  // var mainImg = $('.main');
-  // mainImg.hide();
   $('main').css('background-image', 'none');
-  // console.log('reached');
-
 
   const counter = setInterval(startTimer, 1000);
 
