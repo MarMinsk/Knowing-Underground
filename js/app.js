@@ -25,7 +25,7 @@ function startGame(e) {
   startTimer();
   // var mainImg = $('.main');
   // mainImg.hide();
-  $('.main').css('background-image', 'none');
+  $('main').css('background-image', 'none');
   // console.log('reached');
 
 
@@ -36,7 +36,7 @@ function startGame(e) {
     $('#timer').text('' +$timer);
     if ($timer === 0) {
       clearInterval(counter);
-      $(`<div id="timer">Mind the closing doors, time's up!</div>`).appendTo($('.main'));
+      $(`<div class="timer">Mind the closing doors, time's up!</div>`).css('clear', 'both').appendTo($('.reset-container'));
     }
   }
 }
@@ -76,7 +76,6 @@ function correctAnswer() {
 
 function wrongAnswer() {
   $('#gameResponse').text('Wrong!');
-  $(`<div class="game-over">Wrong bro ${score}</div>`).appendTo($('main'));
 }
 
 function clearContents() {

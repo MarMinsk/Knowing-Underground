@@ -1,54 +1,43 @@
 * {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
-.B {
-  background: #B36305;
-}
+.B { background: #B36305; }
+.C { background: #E32017; }
+.D { background: 	#00782A; }
+.H { background: #F3A9BB; }
+.J { background: 	#A0A5A9; }
+.M { background: #9B0056; }
+.N { background: #000000; }
+.P { background: #003688; }
+.V { background: #0098D4; }
+.W { background: 	#95CDBA; }
 
-
-.C {
-  background: #E32017;
-}
-
-.D {
-  background: 	#00782A;
-}
-
-.H {
-  background: #F3A9BB;
-}
-
-.J {
-  background: 	#A0A5A9;
-}
-
-.M {
-  background: #9B0056;
-}
-
-.N {
-  background: #000000;
-}
-
-.P {
-  background: #003688;
-}
-
-.V {
-  background: #0098D4;
-}
-
-.W {
-  background: 	#95CDBA;
-}
 body {
   background: #F7F7F7;
-  max-width: 1000px;
-
+  width: 1000px;
+  margin: 0 auto !important;
 }
-footer {
+
+main {
   /*max-width: 960px;*/
+  height: 425px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #0019a8;
+  background: white;
+  position: relative;
+  opacity: 0.9;
+  text-align: center;
+  font-family: 'Cabin', sans-serif;
+  overflow: auto;
+  color: #2D3039;
+  border-radius: 5px;
+  background-image: url("http://cdn.londonandpartners.com/images/explorer-map/tubemap-2012-12.png");
+  background-size: cover;
+}
+
+footer {
   margin: 10px auto;
   padding: 10px;
   position: relative;
@@ -59,7 +48,6 @@ footer {
   background: white;
   border-radius: 5px;
   clear: both;
-  margin-left:200px;
 
 }
 h1, h2 {
@@ -84,7 +72,7 @@ header {
   border: 2px solid #0019a8;
   background: white;
   border-radius: 5px;
-  margin-left:200px;;
+  /*margin-left:200px;;*/
 
 }
 button {
@@ -96,26 +84,7 @@ button {
   border-radius: 5px;
   outline: none;
 }
-.main {
-  max-width: 960px;
-  height: 425px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 2px solid #0019a8;
-  background: white;
-  position: relative;
-  opacity: 0.9;
-  text-align: center;
-  font-family: 'Cabin', sans-serif;
-  overflow: auto;
-  color: #2D3039;
-  margin-left:200px;
-  border-radius: 5px;
-  background-image: url("http://cdn.londonandpartners.com/images/explorer-map/tubemap-2012-12.png");
-  background-size: cover;
 
-
-}
 .lineName {
   text-align: left;
   font-weight: bold;
@@ -145,6 +114,7 @@ height: 100%;
   position: absolute;
   bottom: 0;
   left: 10;
+  text-align: center;
 }
 
 #score {
