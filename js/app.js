@@ -2,7 +2,8 @@ $(init);
 
 let stationCode;
 let answer;
-let $timer        = 9;
+let duration      = 20;
+let $timer        = duration;
 let userAnswers   = [];
 let score         = 0;
 
@@ -32,7 +33,7 @@ function startGame(e) {
     $('#timer').text('' +$timer);
     if ($timer === 0) {
       clearInterval(counter);
-      $(`<div class="timer">Mind the closing doors, time's up!</div>`).css('clear', 'both').appendTo($('.reset-container'));
+      $(`<div class="timer"> Mind the closing doors, time's up! Your score is ${score}.</div>`).css('clear', 'both').appendTo($('.display'));
     }
   }
 }
@@ -78,9 +79,12 @@ function clearContents() {
   $('.lines').empty();
   $('.lineName p span').text('');
   $('#gameResponse').text('');
+  $('.display').text('');
+  $('#score').text('');
   stationCode = null;
   answer      = null;
   userAnswers = [];
+  $timer = duration;
 
   $('.submit').off('click');
   $('button.startGame').on('click', startGame);
