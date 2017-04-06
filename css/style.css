@@ -6,6 +6,7 @@
   background: #B36305;
 }
 
+
 .C {
   background: #E32017;
 }
@@ -15,7 +16,7 @@
 }
 
 .H {
-  	background: #F3A9BB;
+  background: #F3A9BB;
 }
 
 .J {
@@ -42,10 +43,12 @@
   background: 	#95CDBA;
 }
 body {
-  background: #EFF6FD;
+  background: #F7F7F7;
+  max-width: 1000px;
+
 }
 footer {
-  max-width: 960px;
+  /*max-width: 960px;*/
   margin: 10px auto;
   padding: 10px;
   position: relative;
@@ -56,6 +59,8 @@ footer {
   background: white;
   border-radius: 5px;
   clear: both;
+  margin-left:200px;
+
 }
 h1, h2 {
   text-align: center;
@@ -70,14 +75,17 @@ li {
   /*background: #dc241f;*/
   color: white;
 }
+
 header {
-  max-width: 960px;
+  /*max-width: 960px;*/
   margin: 10px auto;
   padding: 10px;
   position: relative;
   border: 2px solid #0019a8;
   background: white;
   border-radius: 5px;
+  margin-left:200px;;
+
 }
 button {
   margin: 20px;
@@ -86,6 +94,7 @@ button {
   border: 2px solid #0019a8;
   background: #EFF6FD;
   border-radius: 5px;
+  outline: none;
 }
 .main {
   max-width: 960px;
@@ -94,13 +103,18 @@ button {
   padding: 20px;
   border: 2px solid #0019a8;
   background: white;
-  border-radius: 5px;
   position: relative;
   opacity: 0.9;
   text-align: center;
   font-family: 'Cabin', sans-serif;
   overflow: auto;
   color: #2D3039;
+  margin-left:200px;
+  border-radius: 5px;
+  background-image: url("http://cdn.londonandpartners.com/images/explorer-map/tubemap-2012-12.png");
+  background-size: cover;
+
+
 }
 .lineName {
   text-align: left;
@@ -123,8 +137,8 @@ button {
   border: 2px solid #0019a8;
 }
 /*#tubeImage {
-  width: 100%;
-  height: 100%;
+width: 100%;
+height: 100%;
 }*/
 
 #timer {
@@ -164,6 +178,7 @@ button {
 img {
   height: 20%;
   width: 20%;
+
 }
 
 .submit {
@@ -191,6 +206,13 @@ img {
   width: 79px;
   font-size: 15px;
 }
+
+.lineisit {
+  color: #2D3039;
+  text-align: center;
+}
+
+
 
 
 /* need to include set up for responsive here*/

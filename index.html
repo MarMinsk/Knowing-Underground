@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <title>WDI Project 1</title>
-  <link rel="stylesheet" href="css/animate.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
@@ -16,22 +16,24 @@
   <header>
     <div id="logo1">
       <h1><img src="images/logo.png" alt="logo"/></h1>
+      <h2 class="lineisit">Whose line is it anyway?</h2>
+
     </div>
   </header>
 
     <div class="main">
-
+<!--
       <div id="tubeImage">
         <img src="images/tubemap-2012-12.png" alt="Tube Map Image"/>
-      </div>
+      </div> -->
 
       <div class="instructions">
         <!-- this is where the game instructions will display -->
-        <p>Can you correctly match every London Tube station with it's corresponding line?</p>
+        <!-- <p>Can you correctly match every London Tube station with it's corresponding line?</p> -->
       </div>
 
       <div>
-        <button class="startGame" type="button" name="button">Start</button>
+        <button class="startGame animated pulse" type="button" name="button">Start</button>
       </div>
 
       <div class="lineName">
@@ -39,9 +41,11 @@
         <p><b>Tube Station:</b> <span class="stationName"></span></p>
       </div>
       <div>
-        <ul class="lines">
+        <ul class="lines animated pulse">
         </ul>
       </div>
+
+
 
       <!-- this is where the game displays whether player's selection is either correct or wrong - if wrong it should tell the player how many more they need to select  -->
       <div class="display">
@@ -64,7 +68,7 @@
       </div>
       <!-- Game score counter (hidden until 'Start' button is clicked) -->
       <div class="scoreboard2">
-        <p>Score:<span id="score"></span></p>
+        <p>Score: <span id="score"></span></p>
       </div>
     </div>
 
@@ -73,7 +77,7 @@
     <p>Score:<span id="score"></span></p>
   </div> -->
 
-  <footer> <em>'Knowing Underground'</em> &#x1f685 GA WDI Project 1 &#x1f684 Made by Marisa &#x1f688</footer>
+  <footer> <em>'Knowing Underground'</em> &#x1f684 GA WDI Project 1 &#x1f685 Made by Marisa &#x1f688</footer>
 
 </body>
 </html>
