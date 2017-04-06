@@ -4,53 +4,65 @@ $(init);
 // using window. - indicates something is defined as a window object - this means that the object is accessible anywhere (not best practice to do this)
 
 
-// these variables are all being called in the global scope (why??)
+// these variables are all being called in the global scope so can be called anywhere in the program (why??)
 // stationCode is taking the key from the object window.stations (in data.js) e.g. BST, CHX
 let stationCode;
 // answer is window.linesAtStation[stationCode], used in function pickRandomStation();
 let answer;
-// time will be the game timer
-let $timer         = 31;
+// $timer is used in the startTimer function
+let $timer         = 9;
 // userAnswers will be an array that will be populated with the player's selection(s)
 let userAnswers   = [];
+// score used in the correctAnswer function - needs to be outside the function so as not to reset score to 0 whenever correctAnswer function is run
 let score         = 0;
 
-// this function 'init' starts the game (is that all or does it do something more????)
+
+//  'init' function starts the game (why do all these need to be in the init function??)
 function init() {
-  // on clicking on the button with the class 'startGame' the startGame function below is enacted
-  // I made this 'one' click so that it isn't possible to click 'Start' button multiple times to add additional lines array to game board
-  // start game can happen with or without button.
-  $('.scoreboard1, .scoreboard2').hide();
+  // on clicking on the button with the class 'startGame' the startGame function below is enacted (start game can happen with or without button. prefix)
   $('button.startGame').on('click', startGame);
+  // .hides() hides the score and timer until startGame function is called
+  $('.scoreboard1, .scoreboard2').hide();
+  // clicking on 'reset' button triggers clearContents function below
   $('.reset').on('click', clearContents);
+  // clicking on list items in lines class triggers pickAnswers function below
   $('.lines').on('click', 'li', pickAnswers);
 }
 
-// this function is called in the the 'init' function above
+// startGame function is called by the the 'init' function above (why is 'e' needed?)
+// and includes all the functions that are needed to start the game
 function startGame(e) {
+  // .show() reveals the score and timer when 'start' button is clicked
   $('.scoreboard1, .scoreboard2').show();
   // console.log('start game');
+  // prevents the event from bubbling up the DOM tree & prevents any parent event handlers from being notified of the event
   e.stopPropagation();
-
+  // this relates to the .on('click') in init function above (how does this relationship work?)
   $(this).off('click');
+  // triggers createLineButtons function below
   createLineButtons();
+  // triggers the pickRandomStation function below
   pickRandomStation();
+  // on clicking on .submit class button triggers the compare Arrays function
   $('.submit').on('click', compareArrays);
+  // startTimer function called to start the game countdownn timer
   startTimer();
 
-  // countdown timer function - needs to be included here to be called by startGame function
+  // countdown timer function - needs to be included here to be called by startGame function (why??)
   const counter = setInterval(startTimer, 1000);
   function startTimer() {
     $timer -=1;
-    //console.log($timer);
-    if ($timer === 0) {
-      alert('sorry, out of time');
-      clearInterval(counter);
-      // this reloads the page (to avoid the timer counting into negative numbers)
-      document.location.reload();
-    }
     //displays the countdown timer (text) in the 'timer' id div
     $('#timer').text('' +$timer);
+    //console.log($timer);
+    if ($timer === 0) {
+      alert('Sorry, time\'s up!');
+      clearInterval(counter);
+
+      // this reloads the page (and resets the game) immediately timer has reached 0
+      //have included this to avoid the timer counting into negative numbers
+      document.location.reload();
+    }
   }
 }
 
@@ -60,7 +72,7 @@ function createLineButtons() {
   const $lines = $('.lines');
 
   for (const line in window.lines) {
-    // line append is creating these elements - hidden data atrirbute class called data-line is assigned to each li item taking the line frm the data.js file - the text in the li is populated by the name of the relevant line ${...} string interpolation
+    // line append is creating these elements - hidden data atrirbute class called data-line is assigned to each li item taking the line from the data.js file - the text in the li is populated by the name of the relevant line ${...} string interpolation
     $lines.append(`<li data-line="${line}" class="${line}">${window.lines[line]}</li>`);
   }
 }
@@ -76,14 +88,16 @@ function pickAnswers() {
   $(this).hasClass('selected') ? userAnswers.push($(this).attr('data-line')) : userAnswers.splice(userAnswers.indexOf($(this).attr('data-line'), 1));
 }
 
+// this function compares the answer provided by the player with the (correct) game answer
 function compareArrays() {
 // need to remove console.log at some point so players can't see the correct answer in console log
   console.log('Answer Array', answer.toString());
   console.log('Users Array', userAnswers.toString());
 //
-//   // compares userAnswer and (correct) answer arrays to see if they have the same values inside them
-//   //.sort() to put multiple userAnswers and answer in same order .toString() to convert to string (from what, integer???)
-//   // ternary ? correctAnswer() calls that function : wrongAnswer() calls that function (below)
+// compares userAnswer and (correct) answer arrays to see if they have the same values inside them
+// .sort() to put userAnswers and answer arrays in same order
+// .toString() to convert to string (from what, integer???)
+//  ternary ? correctAnswer() calls that function : wrongAnswer() calls that function (below)
   userAnswers.sort().toString() === answer.sort().toString() ? correctAnswer() : wrongAnswer();
 }
 
@@ -93,22 +107,26 @@ function compareArrays() {
 //
 // answer.sort() => [1,2,3,4,5]
 //
-if (answer.indexOf(userAnswers.sort().toString()) !== -1) {
-  console.log('same length');
-} else {
-  console.log('different length');
-}
+// if (answer.indexOf(userAnswers.sort().toString()) !== -1) {
+//   console.log('same length');
+// } else {
+//   console.log('different length');
+// }
 //
 
-
-
+// this function runs when  userAnswers correctly matches answer
 function correctAnswer() {
+  // when correct answer, this increments up by 1 to the score variable (initialised as 0)
   score++;
+  // within 'score' id element, creates an empty text string, then updates the score within that string
   $('#score').text('' +score);
+  // within 'gameResponse' id element, adds the text 'Correct!'
   $('#gameResponse').text('Correct!');
   userAnswers = [];
+  // removes the 'selected' element formatting from the li elements in the lines class
   $('.lines li').removeClass('selected');
 
+  // runs the pickRandomStation function again to add a new station to the span in the linesName class
   pickRandomStation();
 }
 
@@ -116,13 +134,19 @@ function wrongAnswer() {
   // Change text to 'You got x out of y lines correct. Try again.', where x is the player's selection and y is the correct number of stations.
   $('#gameResponse').text('Wrong!');
 }
-
+// clicking on the 'reset' button triggers the .reset class which calls this clearContents function
 function clearContents() {
+  // the contents (li) of the line (ul) class are removed
   $('.lines').empty();
+  // the span of the lineName class is cleared of text
   $('.lineName p span').text('');
+  // the gameResponse id element is cleared of it's (correct or wrong) text
   $('#gameResponse').text('');
+  // the stationCode variable, called in the pickRandomStation function is reset to null (why null??)
   stationCode = null;
+  // the answer variable, also called in the pickRandomStation function is also reset to null
   answer      = null;
+  // the userAnswers array, used in the pickAnswers function, is cleared
   userAnswers = [];
 
   $('.submit').off('click');
@@ -131,9 +155,9 @@ function clearContents() {
 }
 
 
-// things to sort out:
-// why timer is not displaying properly in 'time remaining' span
-// how to include more complex logic - so that player sees 'you got 1 out of 3 lines correct'
+// functionality to add / bug fixes:
+// include more complex logic - so that for incorrect selections player player sees something like 'You got 1 out of 3 lines correct. Try again.'
 // how to avoid player having to click 'start' when 'play again' is clicked for next game play
 // how to stop timer going into negative count (currently using page reload to work around this but would like a better solution)
 // how to add a range of 'game response' options e.g. 'correct!' 'great!' 'well done' 'not quite' 'try again' etc...
+// move selected stations into a new array to remove them from game play options

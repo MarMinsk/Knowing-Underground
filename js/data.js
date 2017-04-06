@@ -4,7 +4,7 @@ var lines = {
   B: 'Bakerloo',
   C: 'Central',
   D: 'District',
-  H: 'Hammersmith & Circle',
+  H: 'Hammersmith & City',
   J: 'Jubilee',
   M: 'Metropolitan',
   N: 'Northern',

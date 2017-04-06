@@ -3,9 +3,8 @@
 <head>
   <meta charset="utf-8">
   <title>WDI Project 1</title>
-  <!-- <link href="http://www.fontspace.com/jonathan-paterson/london-tube.ttf" rel="stylesheet"> -->
+  <link rel="stylesheet" href="css/animate.css">
   <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
@@ -16,62 +15,62 @@
 
   <header>
     <div id="logo1">
-  <h1><img src="images/logo.png" /></h1>
+      <h1><img src="images/logo.png" /></h1>
 
-  </header>
+    </header>
 
-  <div class="main">
+    <div class="main">
 
-    <div class="instructions">
-      <!-- this is where the game instructions will display -->
-      <p>Can you correctly match every London Tube station with it's corresponding line?</p>
+      <div class="instructions">
+        <!-- this is where the game instructions will display -->
+        <p>Can you correctly match every London Tube station with it's corresponding line?</p>
+      </div>
+
+      <div>
+
+        <button class="startGame" type="button" name="button">Start</button>
+      </div>
+
+      <div class="lineName">
+        <!-- this is where the line or station name will be displayed -->
+        <p><b>Tube Station:</b> <span class="stationName"></span></p>
+      </div>
+      <div>
+        <ul class="lines">
+        </ul>
+      </div>
+
+      <!-- this is where the game displays whether player's selection is either correct or wrong - if wrong it should tell the player how many more they need to select  -->
+      <div class="display">
+        <p id="gameResponse"></p>
+      </div>
+
+      <!-- this button will submit the player's selection-->
+      <div>
+        <button class="submit" name="button">Submit Your Answer</button>
+      </div>
+
+      <div>
+        <button class="reset" name="button">Reset</button>
+      </div>
+
+      <!-- Game countdown timer (hidden until 'Start' button is clicked) -->
+      <div class="scoreboard1">
+        <span id="timer"></span>
+        <p>Time Remaining:</p>
+      </div>
+      <!-- Game score counter (hidden until 'Start' button is clicked) -->
+      <div class="scoreboard2">
+        <p>Score:<span id="score"></span></p>
+      </div>
     </div>
 
-    <div>
-      <button class="startGame" type="button" name="button">Start</button>
-    </div>
-    <!-- <p>Time remaining:<span id="timer"></span></p> -->
-
-    <div class="lineName">
-      <!-- this is where the line or station name will be displayed -->
-      <p><b>Tube Station</b>: <span></span></p>
-    </div>
-    <div>
-      <ul class="lines">
-      </ul>
-    </div>
-
-    <!-- this is where the game displays whether player's selection is either correct or wrong - if wrong it should tell the player how many more they need to select  -->
-    <div class="display">
-      <p id="gameResponse"></p>
-    </div>
-
-    <!-- this button will submit the player's selection-->
-    <div>
-      <button class="submit" name="button">Submit Your Answer</button>
-    </div>
-
-    <!-- clicking on reset button should generate warning 'Are you sure you want to reset? All your progress will be lost.' -->
-    <div>
-      <button class="reset" name="button">Play Again!</button>
-    </div>
-
-    <!-- this will be a counter that counts the length of game play (in seconds/minutes). this will commence as soon as the player selects 'start'  -->
-    <div class="scoreboard1">
-    <span id="timer"></span>
-    <p>Time Left</p>
-  </div>
-  <div class="scoreboard2">
-<p>Score:<span id="score"></span></p>
-</div>
-  </div>
-
-  <!-- This is the user score based on correct guesses. Score will increment up by 1 for every station corretly guessed  -->
-  <!-- <div>
+    <!-- This is the user score based on correct guesses. Score will increment up by 1 for every station corretly guessed  -->
+    <!-- <div>
     <p>Score:<span id="score"></span></p>
   </div> -->
 
-  <footer> GA WDI Project 1 - Made by Marisa</footer>
+  <footer> <em>'Knowing Underground'</em> - GA WDI Project 1 - Made by Marisa</footer>
 
 </body>
 </html>

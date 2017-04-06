@@ -42,22 +42,18 @@
   background: 	#95CDBA;
 }
 body {
-  /*background: #EFF6FD;*/
-  background-repeat: no-repeat;
-  background-position: center;
-  /*border: 4px solid #0019a8;*/
-
+  background: #EFF6FD;
 }
 footer {
   max-width: 960px;
   margin: 10px auto;
   padding: 10px;
   position: relative;
-  /*background: #1A5A92;*/
   font-family: 'Cabin', sans-serif;
-  color: black;
+  color: #2D3039;
   text-align: center;
-  /*border: 1px solid #0019a8;*/
+  border: 2px solid #0019a8;
+  background: white;
   border-radius: 5px;
   clear: both;
 }
@@ -71,7 +67,7 @@ li {
   border-radius: 5px;
   margin: 10px;
   padding: 10px;
-  background: #dc241f;
+  /*background: #dc241f;*/
   color: white;
 }
 header {
@@ -79,30 +75,32 @@ header {
   margin: 10px auto;
   padding: 10px;
   position: relative;
-  /*border: 1px solid #0019a8;*/
+  border: 2px solid #0019a8;
+  background: white;
   border-radius: 5px;
 }
 button {
   margin: 20px;
   padding: 10px;
   font-family: 'Cabin', sans-serif;
-  border: 2px solid #CCCCCC;
+  border: 2px solid #0019a8;
   background: #EFF6FD;
   border-radius: 5px;
 }
 .main {
   max-width: 960px;
-  height: 400px;
+  height: 425px;
   margin: 0 auto;
   padding: 20px;
-  /*border: 1px solid #0019a8;*/
+  border: 2px solid #0019a8;
+  background: white;
   border-radius: 5px;
   position: relative;
   opacity: 0.9;
   text-align: center;
   font-family: 'Cabin', sans-serif;
   overflow: auto;
-  color: black;
+  color: #2D3039;
 }
 .lineName {
   text-align: left;
@@ -121,11 +119,10 @@ button {
 
 .selected {
   background: white;
-  color: black;
+  color: #0019a8;
+  border: 2px solid #0019a8;
 }
 
-
-/* neeed to work out how to position timer and score elements better on the page*/
 #timer {
   position: absolute;
   bottom: 0;
@@ -138,21 +135,27 @@ button {
   left: 10;
 }
 
+.stationName {
+  border: 2px solid #0019a8;
+  border-radius: 5px;
+  background: white;
+  padding: 5px 20px;
+  margin-left: 20px;
+}
+
 .scoreboard1 {
   position: relative;
   float: left;
   text-align: center;
-  color: black;
+  color: #2D3039;
 }
-
 
 .scoreboard2 {
   position: relative;
   float: right;
   text-align: center;
-  color: black;
+  color: #2D3039;
 }
-
 
 img {
   height: 20%;
@@ -185,10 +188,6 @@ img {
   font-size: 15px;
 }
 
-/*have downloaded the font & included in css folder - how to link to font?*/
-/*@font-face {
-font-family: "London Tube";*/
-/*src: url(http://www.fontspace.com/jonathan-paterson/london-tube.ttf) format("truetype");*/
 
 /* need to include set up for responsive here*/
 @media only screen and (max-width: 960px) {
