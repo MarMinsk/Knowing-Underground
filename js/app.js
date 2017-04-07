@@ -2,7 +2,7 @@ $(init);
 
 let stationCode;
 let answer;
-let duration      = 20;
+let duration      = 30;
 let $timer        = duration;
 let userAnswers   = [];
 let score         = 0;
@@ -33,7 +33,7 @@ function startGame(e) {
     $('#timer').text('' +$timer);
     if ($timer === 0) {
       clearInterval(counter);
-      $(`<div class="timer"> Mind the closing doors, time's up! Your score is ${score}.</div>`).css('clear', 'both').appendTo($('.display'));
+      $(`<div class="timer"> Mind the closing doors, time's up! You scored ${score}.</div>`).css('clear', 'both').appendTo($('.display'));
     }
   }
 }

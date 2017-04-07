@@ -169,9 +169,12 @@ function clearContents() {
 
 
 // functionality to add / bug fixes:
-// include more complex logic - so that for incorrect selections player player sees something like 'You got 1 out of 3 lines correct. Try again.'
-// how to avoid player having to click 'start' when 'play again' is clicked for next game play
-// how to stop timer going into negative count (currently using page reload to work around this but would like a better solution)
-// how to add a range of 'game response' options e.g. 'correct!' 'great!' 'well done' 'not quite' 'try again' etc...
+// on reset 'correct' 'wrong' isn't displaying
+// on reset score isn't returning to 0, continues to increment up from previous session's score
+// remove 'selected' class when player submits wrong answer (reset buttons to line colours)
+// add sound to correct/wrong answer & time out
+// sort out alignment so score and timer don't roll down the page
+// include more complex logic - so that for wrong selections player player sees something like 'You got 1 out of 3 lines correct. Try again.'
 // move selected stations into a new array to remove them from game play options
-// add a 'play again' button
+// how to avoid player having to click 'start' when 'play again' is clicked for next game play
+// add a range of 'game response' options e.g. 'correct!' 'great!' 'well done' 'not quite' 'try again' etc...
