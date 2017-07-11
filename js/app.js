@@ -2,7 +2,7 @@ $(init);
 
 let stationCode;
 let answer;
-let duration      = 30;
+const duration      = 30;
 let $timer        = duration;
 let userAnswers   = [];
 let score         = 0;
